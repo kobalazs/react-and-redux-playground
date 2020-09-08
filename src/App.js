@@ -2,11 +2,11 @@ import React from 'react';
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
-  NavLink
+  Route
 } from 'react-router-dom';
 
 import './App.css';
+import Navigation from './features/common/Navigation';
 import Home from './features/common/Home';
 import Counter from './features/counter/Counter';
 import Registration from './features/user/Registration';
@@ -16,13 +16,7 @@ import NotFound from './features/common/NotFound';
 export default function App() {
   return (
     <Router>
-      <nav>
-        <strong>React Playground</strong>
-        <NavLink to="/" activeClassName="active" exact>Home</NavLink>
-        <NavLink to="/counter" activeClassName="active">Counter</NavLink>
-        <NavLink to="/registration" activeClassName="active">Registration</NavLink>
-        <NavLink to="/login" activeClassName="active">Login</NavLink>
-      </nav>
+      <Navigation />
       <div className="container">
         <Switch>
           <Route path="/" exact>
