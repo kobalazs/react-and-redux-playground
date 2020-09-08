@@ -13,6 +13,7 @@ export default function Navigation() {
       <strong>React Playground</strong>
       <NavLink to="/" activeClassName="active" exact>Home</NavLink>
       <NavLink to="/counter" activeClassName="active">Counter</NavLink>
+      <NavLink to="/tasks" activeClassName="active">Tasks</NavLink>
       {user
       ? <button onClick={() => dispatch(logOut())}>Logout</button>
       : (

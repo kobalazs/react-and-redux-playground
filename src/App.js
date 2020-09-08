@@ -12,6 +12,7 @@ import Counter from './features/counter/Counter';
 import Registration from './features/user/Registration';
 import Login from './features/user/Login';
 import NotFound from './features/common/NotFound';
+import TaskList from './features/task/TaskList';
 
 export default function App() {
   return (
@@ -30,6 +31,9 @@ export default function App() {
           </Route>
           <Route path="/login">
             <Login />
+          </Route>
+          <Route path="/tasks">
+            <TaskList />
           </Route>
           <Route path="*">
             <NotFound />
