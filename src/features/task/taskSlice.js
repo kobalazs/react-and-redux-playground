@@ -28,15 +28,31 @@ export const {
 } = taskSlice.actions;
 
 export const loadTasks = token => async dispatch => {
+  const http = HttpHelper(token);
   dispatch(setLoading(true));
+  dispatch(setError(null));
   try {
-    const response = await HttpHelper(token).get('/task')
+    const response = await http.get('/task');
     dispatch(setTasks(response.data));
   } catch (e) {
     dispatch(setError(e.response?.data?.error));
   }
   dispatch(setLoading(false));
 };
+
+export const createTask = (token, task) => async dispatch => {
+  const http = HttpHelper(token);
+  dispatch(setLoading(true));
+  dispatch(setError(null));
+  try {
+    await http.post('/task', task);
+    const response = await http.get('/task');
+    dispatch(setTasks(response.data));
+  } catch (e) {
+    dispatch(setError(e.response?.data?.error));
+  }
+  dispatch(setLoading(false));
+}
 
 export const selectLoading = state => state.task.loading;
 export const selectTasks = state => state.task.tasks;
